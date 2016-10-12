@@ -1,0 +1,21 @@
+{
+  "name": "AngularDrc",
+  "homepage": "https://github.com/guimaraes05/AngularDrc",
+  "authors": [
+    "guimaraes05 <bicas.guimaraes5@gmail.com>"
+  ],
+  "description": "Curso de Angular DRC",
+  "main": "index.html",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}
