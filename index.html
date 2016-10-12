@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
-    <script scr="bower_components/angular/angular.min.js"></script>
-    <script scr="js/main.js"></script>
+    <title>Primeiro App ANGULAR</title>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body ng-app="myApp">
-    <div ng-controller="primeiroController">{{greeting}}</div>
+    <div ng-controller="GreetingController">
+        <div>
+            {{greeting}}
+        </div>
+        <div>
+            {{hello}}    
+        </div>
+        <div>
+            <button ng-click="showAlert()">ALERTA!!!</button>
+        </div>
+        
+    </div>
 </body>
 </html>
