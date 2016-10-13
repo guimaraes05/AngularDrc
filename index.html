@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title>Custom Service</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="style.css"/>
+
     <style>
         body {
             background-color: #ccc;
             padding: 50px;
         }
     </style>
+
 </head>
 <body ng-app="calcApp" ng-controller="CalcCtrl">
 
         <form>
-            <label for="preco">Preço:</label>
-            <input type="number" id="preco" ng-model="preco" required/>
+            <label for="precoID">Preço:</label>
+            <input type="number" id="precoID" ng-model="preco" required/>
             <hr/>
-            <label for="desconto">Desconto (Digite 20 para 20%):</label>
-            <input type="number" id="desconto" ng-model="desconto" required/>
+            <label for="descontoID">Desconto (Digite 20 para 20%):</label>
+            <input type="number" id="descontoID" ng-model="desconto" required/>
         </form>
 
         <hr/>
@@ -32,6 +33,6 @@
         <button ng-click="encerrarWatch()" ng-if="isWatching" class="btn btn-danger">Encerrar Watch</button>
 
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="app.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
