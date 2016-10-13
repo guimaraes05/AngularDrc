@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Primeiro App ANGULAR</title>
-
+    <title>Cart Discount</title>
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="js/main.js"></script>
 </head>
 <body ng-app="myApp">
-    <div ng-controller="GreetingController">
+    <div ng-controller="CartController">
+        <ul >
+            <li>{{bill.total}}</li>
+            <li>{{bill.discount}}</li>
+            <li>{{bill.subtotal}}</li>
+        </ul>
         <div>
-            {{greeting}}
+            <button ng-click="changeItems()">Troca os Itens</button>
+            <button ng-click="addItem()">Adiciona</button>
+            <button ng-click="updateItem()">Atualiza</button>
+            <button ng-click="removeItem()">Remove</button>
         </div>
-        <div>
-            {{hello}}    
-        </div>
-        <div>
-            <button ng-click="showAlert()">ALERTA!!!</button>
-        </div>
-        
     </div>
 </body>
 </html>
