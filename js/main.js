@@ -41,6 +41,8 @@ function CartControllerFN($scope) {
         $scope.items.push({name:"Ovos",price:55.45, quantity:10});
     }   
 
+    console.log("dsadasd", $scope.items)
+
     //altera item
     $scope.updateItem = function () {
         $scope.items[$scope.items.length-1].quantity = 1
