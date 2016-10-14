@@ -17,7 +17,6 @@
 
 
         $scope.iniciarWatch = function () {
-            
             $scope.isWatching = true;
             $scope.watch = $scope.$watch("desconto", updateValue,true);
 
