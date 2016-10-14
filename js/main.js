@@ -4,13 +4,18 @@
 
 
 //adicionamos a controller no app
-    app.controller("WannaBuy",["$scope","webItems", function($scope, webItems) {
-        $scope.items = webItems.get();
+    app.controller("PrimeiroController",["$scope","webItems", function($scope, webItems) {
+        $scope.service = "Primeiro - " + webItems.get();
 
-        console.log(webItems.get());
     }]);
 
-    app.controller("AddItemCtrl",["$scope", "webItems", function($scope, webItems){
+    app.controller("SegundoController",["$scope","webItems", function($scope, webItems) {
+        $scope.service = "Segundo - " + webItems.get();
+
+    }]);
+
+
+    app.controller("AddItem",["$scope", "webItems", function($scope, webItems){
 
         $scope.item = {}
 
@@ -25,7 +30,7 @@
 
     app.factory("webItems", function(){
 
-        var items = [];
+        var items = "";
 
         function getItems(){
             return items;
@@ -33,7 +38,7 @@
 
         function addItem(item){
             
-                items.push(item);
+                items = item;
             
             
         }

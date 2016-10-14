@@ -15,16 +15,16 @@
 
 </head>
 <body ng-app="App">
-    <div ng-controller="WannaBuy">
-        <ul>
-            <li ng-repeat="item in items">{{item.name}} - {{item.quantidade}}</li>
-        </ul>
+    <div ng-controller="PrimeiroController">
+        <h3>{{service}}</h3>
     </div>
 
-    <div ng-controller="AddItemCtrl">
+    <div ng-controller="SegundoController">
+        <h3>{{service}}</h3>
+    </div>
+    <div ng-controller="AddItem">
         <form ng-submit="addItem(item)">
             <input type="text" ng-model="item.name">
-            <input type="number" ng-model="item.quantidade">
             <input type="submit" value="Add">
         </form>
     </div>
