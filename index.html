@@ -14,23 +14,20 @@
     </style>
 
 </head>
-<body ng-app="calcApp" ng-controller="CalcCtrl">
+<body ng-app="App">
+    <div ng-controller="WannaBuy">
+        <ul>
+            <li ng-repeat="item in items">{{item.name}} - {{item.quantidade}}</li>
+        </ul>
+    </div>
 
-        <form>
-            <label for="precoID">Preço:</label>
-            <input type="number" id="precoID" ng-model="preco" required/>
-            <hr/>
-            <label for="descontoID">Desconto (Digite 20 para 20%):</label>
-            <input type="number" id="descontoID" ng-model="desconto" required/>
+    <div ng-controller="AddItemCtrl">
+        <form ng-submit="addItem(item)">
+            <input type="text" ng-model="item.name">
+            <input type="number" ng-model="item.quantidade">
+            <input type="submit" value="Add">
         </form>
-
-        <hr/>
-
-        <h1>Total com Desconto: {{ valorFinal | currency }}</h1>
-
-        <br/>
-        <button ng-click="iniciarWatch()" ng-if="!isWatching" class="btn btn-success">Iniciar Watch</button>
-        <button ng-click="encerrarWatch()" ng-if="isWatching" class="btn btn-danger">Encerrar Watch</button>
+    </div>
 
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="js/main.js"></script>

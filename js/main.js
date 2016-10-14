@@ -1,36 +1,48 @@
 (function(){
 
-    var calcApp = angular.module("calcApp",[]);
+    var app = angular.module("App",[]);
 
 
 //adicionamos a controller no app
-    calcApp.controller("CalcCtrl",["$scope",CalcCtrlFN]);
+    app.controller("WannaBuy",["$scope","webItems", function($scope, webItems) {
+        $scope.items = webItems.get();
+
+        console.log(webItems.get());
+    }]);
+
+    app.controller("AddItemCtrl",["$scope", "webItems", function($scope, webItems){
+
+        $scope.item = {}
+
+        $scope.addItem = function (item){
+            webItems.set(angular.copy(item));
+            $scope.item = {};
+        }
+        // $scope.items = webItems.set();
+    }]);
 
 
-    //é a definição
-    function CalcCtrlFN($scope) {
 
-        $scope.preco = 100;
-        $scope.desconto = 0;
-        $scope.valorFinal = 0;
-        $scope.isWatching = false;
+    app.factory("webItems", function(){
 
+        var items = [];
 
-        $scope.iniciarWatch = function () {
-            $scope.isWatching = true;
-            $scope.watch = $scope.$watch("desconto", updateValue,true);
-
+        function getItems(){
+            return items;
         }
 
-        $scope.encerrarWatch = function () {
-            $scope.isWatching = false;
-            $scope.watch();
+        function addItem(item){
+            
+                items.push(item);
+            
+            
         }
 
-        function updateValue(){
-            $scope.valorFinal = $scope.preco * ($scope.desconto/100);
+        return {
+            get: getItems,
+            set: addItem
         }
+    })
 
-    }
 })()
 
