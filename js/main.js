@@ -25,14 +25,16 @@
     app.controller("ServicoSetterCtrl",["$scope", "changeMsg", function($scope, changeMsg){
 
         $scope.setarMensagem = function(){
-            changeMsg.set($scope.novaMensagem);
+            if($scope.novaMensagem != ""){
+                changeMsg.set($scope.novaMensagem);
+            } else{
+                var msgErro = "Msg Vazia";
+                alert("Por Favor digite uma MSG")
+                changeMsg.set(msgErro);
+            }
         }
         
     }]);
-
-    
-
-
 
     app.factory("changeMsg", function(){
 
