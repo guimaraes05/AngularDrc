@@ -7,25 +7,43 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 
     <style>
-        body {
-            background-color: #ccc;
-            padding: 50px;
-        }
+        .cyan {
+    background-color: #1fb2de;
+        padding: 50px;
+    }
+
+    .green {
+        background-color: #34aa38;
+        padding: 50px;
+    }
+
+    .yellow {
+        background-color: #e3e333;
+        padding: 50px;
+    }
+    .mensagem {
+        color: white;
+    }
     </style>
 
 </head>
-<body ng-app="App">
-    <div ng-controller="PrimeiroController">
-        <h3>{{service}}</h3>
+<body ng-app="customServiceApp">
+
+    <div class="cyan" ng-controller="Secao1Ctrl">
+        <small>Controlador 1</small>
+        <h3>Mensagem do Serviço:<br><h1 class="mensagem">{{pegarMensagem()}}</h1></h3>
     </div>
 
-    <div ng-controller="SegundoController">
-        <h3>{{service}}</h3>
+    <div class="green" ng-controller="Secao2Ctrl">
+        <small>Controlador 2</small>
+        <h3>Mensagem do Serviço:<br><h1 class="mensagem">{{pegarMensagem()}}</h1></h3>
     </div>
-    <div ng-controller="AddItem">
-        <form ng-submit="addItem(item)">
-            <input type="text" ng-model="item.name">
-            <input type="submit" value="Add">
+
+    <div class="yellow" ng-controller="ServicoSetterCtrl">
+        <form ng-submit="setarMensagem(novaMensagem)">
+            <h3>Nova Mensagem no Serviço:</h3>
+            <br>
+            <input type="text" ng-model="novaMensagem">
         </form>
     </div>
 

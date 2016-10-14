@@ -1,51 +1,53 @@
 (function(){
 
-    var app = angular.module("App",[]);
+    var app = angular.module("customServiceApp",[]);
 
 
 //adicionamos a controller no app
-    app.controller("PrimeiroController",["$scope","webItems", function($scope, webItems) {
-        $scope.service = "Primeiro - " + webItems.get();
+    app.controller("Secao1Ctrl",["$scope","webItems", function($scope, webItems) {
 
-    }]);
-
-    app.controller("SegundoController",["$scope","webItems", function($scope, webItems) {
-        $scope.service = "Segundo - " + webItems.get();
-
-    }]);
-
-
-    app.controller("AddItem",["$scope", "webItems", function($scope, webItems){
-
-        $scope.item = {}
-
-        $scope.addItem = function (item){
-            webItems.set(angular.copy(item));
-            $scope.item = {};
+        $scope.pegarMensagem = function(){
+            return webItems.get();
         }
-        // $scope.items = webItems.set();
+
+    }]);
+
+
+    app.controller("Secao2Ctrl",["$scope","webItems", function($scope, webItems) {
+         
+          $scope.pegarMensagem = function(){
+            return webItems.get();
+        }
+
+    }]);
+
+
+    app.controller("ServicoSetterCtrl",["$scope", "webItems", function($scope, webItems){
+
+        $scope.setarMensagem = function(item){
+            webItems.set(item);
+        }
+        
     }]);
 
 
 
     app.factory("webItems", function(){
 
-        var items = "";
+        var msg = "Essa é a primeira MSG";
 
-        function getItems(){
-            return items;
+        function getMsg(){
+            return msg;
         }
 
-        function addItem(item){
-            
-                items = item;
-            
-            
+        function setMsg(item){
+            msg = item; 
+
         }
 
         return {
-            get: getItems,
-            set: addItem
+            get: getMsg,
+            set: setMsg
         }
     })
 
