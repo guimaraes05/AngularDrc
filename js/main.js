@@ -25,6 +25,7 @@
     app.controller("ServicoSetterCtrl",["$scope", "changeMsg", function($scope, changeMsg){
 
         $scope.setarMensagem = function(){
+            
             if($scope.novaMensagem != ""){
                 changeMsg.set($scope.novaMensagem);
             } else{
