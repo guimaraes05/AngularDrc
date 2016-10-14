@@ -2,8 +2,6 @@
 
     var app = angular.module("customServiceApp",[]);
 
-
-//adicionamos a controller no app
     app.controller("Secao1Ctrl",["$scope","changeMsg", function($scope, changeMsg) {
 
         $scope.pegarMensagem = function(){
@@ -37,6 +35,7 @@
         
     }]);
 
+
     app.factory("changeMsg", function(){
 
         var msg = "Primeira MSG";
@@ -54,7 +53,7 @@
             get: getMsg,
             set: setMsg
         }
-    })
+    });
 
 })()
 
