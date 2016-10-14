@@ -4,28 +4,28 @@
 
 
 //adicionamos a controller no app
-    app.controller("Secao1Ctrl",["$scope","webItems", function($scope, webItems) {
+    app.controller("Secao1Ctrl",["$scope","changeMsg", function($scope, changeMsg) {
 
         $scope.pegarMensagem = function(){
-            return webItems.get();
+            return changeMsg.get();
         }
 
     }]);
 
 
-    app.controller("Secao2Ctrl",["$scope","webItems", function($scope, webItems) {
+    app.controller("Secao2Ctrl",["$scope","changeMsg", function($scope, changeMsg) {
          
           $scope.pegarMensagem = function(){
-            return webItems.get();
+            return changeMsg.get();
         }
 
     }]);
 
 
-    app.controller("ServicoSetterCtrl",["$scope", "webItems", function($scope, webItems){
+    app.controller("ServicoSetterCtrl",["$scope", "changeMsg", function($scope, changeMsg){
 
-        $scope.setarMensagem = function(item){
-            webItems.set(item);
+        $scope.setarMensagem = function(){
+            changeMsg.set($scope.novaMensagem);
         }
         
     }]);
@@ -34,7 +34,7 @@
 
 
 
-    app.factory("webItems", function(){
+    app.factory("changeMsg", function(){
 
         var msg = "Essa é a primeira MSG";
 
