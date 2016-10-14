@@ -28,8 +28,8 @@
             
             if($scope.novaMensagem != ""){
                 changeMsg.set($scope.novaMensagem);
-            } else{
-                var msgErro = "Msg Vazia";
+            } else {
+                var msgErro = "Digite uma msg";
                 alert("Por Favor digite uma MSG")
                 changeMsg.set(msgErro);
             }
@@ -39,7 +39,7 @@
 
     app.factory("changeMsg", function(){
 
-        var msg = "Essa é a primeira MSG";
+        var msg = "Primeira MSG";
 
         function getMsg(){
             return msg;
