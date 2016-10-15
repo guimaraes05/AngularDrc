@@ -1,22 +1,27 @@
 (function(){
-    
-    var app = angular.module("broadApp",[]);
 
-    app.controller("SendCtrl",["$scope","$rootScope" , function($scope, $root) {
+    var app = angular.module("customServiceApp",[]);
+
+    app.controller("Secao1Ctrl",["$scope", "$rootScope", function($scope, $root) {
         
-        $scope.sendText = function (){
+        $scope.total = 1;
+
+        $scope.incrementarValorTotalEm = function (){
             
-            $root.$broadcast("EnvioDeDados", {
-            texto:$scope.texto
-        })
+            $scope.total += 1;;
+
+            $root.$broadcast("IncrementNumber", {
+                inc:$scope.total
+            })
         } 
         
     }]);
 
-    app.controller("ReaderCtrl",["$scope", function($scope) {
+    app.controller("Secao2Ctrl",["$scope", function($scope) {
+        $scope.total = 1;
+        $scope.$on("IncrementNumber", function(event, data){
+            $scope.total = data.inc;
 
-        $scope.$on("EnvioDeDados", function(event, data){
-            $scope.content = data.texto;
         })
 
     }]);

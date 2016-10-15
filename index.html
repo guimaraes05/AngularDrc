@@ -7,28 +7,33 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
 
     <style>
-        #sender{
-            background: #cccccc;
-            padding: 50px; 
-        }
-        #reader{
-            padding: 50px;
-            background: #FF6600;
-        }
+        #div1 {
+    background-color: #00b3ee;
+    padding: 50px;
+    }
+
+    #div2 {
+        background-color: #3e8f3e;
+        padding: 50px;
+    }
         
     </style>
 </head>
 
-<body ng-app="broadApp">
+<body ng-app="customServiceApp">
 
-    <div id="sender" ng-controller="SendCtrl">
-        <input type="text" ng-model="texto">
-        <input type="button" class="btn-sucess" ng-click="sendText()" value="send">
+    <div id="div1" ng-controller="Secao1Ctrl">
+        <small>Controlador 1</small>
+        <h1>Total do Serviço: {{ total }}</h1>
+        <br/>
+        <button ng-click="incrementarValorTotalEm(1)">Incrementar Total do Serviço</button>
     </div>
 
-    <div id="reader" ng-controller="ReaderCtrl">
-        <label>{{content}}</label>
+    <div id="div2" ng-controller="Secao2Ctrl">
+        <small>Controlador 2</small>
+        <h1>Total: {{ total }}</h1>
     </div>
+
     <script src="bower_components/angular/angular.min.js"></script>
     <script src="js/main.js"></script>
 </body>
