@@ -8,11 +8,9 @@
 
         $scope.$on("IncrementNumber", function(event, data){
             $scope.total = data.inc;
-        })
+        });
         
-
-        $scope.incrementarValorTotalEm = function (value){
-            
+        $scope.incrementarValorTotalEm = function (value){ 
             toDo.set($scope.total + value); 
         } 
 
@@ -25,7 +23,7 @@
 
         $scope.$on("IncrementNumber", function(event, data){
             $scope.total = data.inc;
-        })
+        });
 
     }]);
 
