@@ -1,59 +1,25 @@
 (function(){
 
-    var app = angular.module("customServiceApp",[]);
+    var app = angular.module("broadApp",[]);
 
-    app.controller("Secao1Ctrl",["$scope","changeMsg", function($scope, changeMsg) {
-
-        $scope.pegarMensagem = function(){
-            return changeMsg.get();
-        }
-
-    }]);
-
-
-    app.controller("Secao2Ctrl",["$scope","changeMsg", function($scope, changeMsg) {
-         
-          $scope.pegarMensagem = function(){
-            return changeMsg.get();
-        }
-
-    }]);
-
-
-    app.controller("ServicoSetterCtrl",["$scope", "changeMsg", function($scope, changeMsg){
-
-        $scope.setarMensagem = function(){
+    app.controller("SendCtrl",["$scope","$rootScope" , function($scope, $root) {
+        
+        $scope.sendText = function (){
             
-            if($scope.novaMensagem != ""){
-                changeMsg.set($scope.novaMensagem);
-            } else {
-                var msgErro = "Digite uma msg";
-                alert("Por Favor digite uma MSG")
-                changeMsg.set(msgErro);
-            }
-        }
+            $root.$broadcast("EnvioDeDados", {
+            texto:$scope.texto
+        })
+        } 
         
     }]);
 
+    app.controller("ReaderCtrl",["$scope", function($scope) {
 
-    app.factory("changeMsg", function(){
+        $scope.$on("EnvioDeDados", function(event, data){
+            $scope.content = data.texto;
+        })
 
-        var msg = "Primeira MSG";
+    }]);
 
-        function getMsg(){
-            return msg;
-        }
-
-        function setMsg(item){
-            msg = item; 
-
-        }
-
-        return {
-            get: getMsg,
-            set: setMsg
-        }
-    });
-
-})()
+})()    
 
