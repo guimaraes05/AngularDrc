@@ -6,9 +6,9 @@
         
         $scope.total = 1;
 
-        $scope.incrementarValorTotalEm = function (){
+        $scope.incrementarValorTotalEm = function (value){
             
-            $scope.total += 1;;
+            $scope.total += value;
 
             $root.$broadcast("IncrementNumber", {
                 inc:$scope.total
@@ -20,13 +20,13 @@
     app.controller("Secao2Ctrl",["$scope", function($scope) {
         
         $scope.total = 1;
-        
+
         $scope.$on("IncrementNumber", function(event, data){
             $scope.total = data.inc;
-
         })
 
     }]);
+
 
 })()    
 
